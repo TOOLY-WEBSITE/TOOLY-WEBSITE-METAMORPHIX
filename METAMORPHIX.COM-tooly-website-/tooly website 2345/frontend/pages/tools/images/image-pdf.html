@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF Converter</title>
+    <link rel="stylesheet" href="image-pdf.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <section class="tool">
+
+            <header class="tool__header">
+                <h1 class="tool__title">Image to PDF Converter</h1>
+                <p class="tool__subtitle">Convert images into high-quality PDF files instantly</p>
+            </header>
+
+
+            <!-- Upload Area -->
+            <label class="upload">
+
+<input type="file" multiple accept="image/*">
+
+<div class="upload__content">
+<p class="upload__title">Drag & Drop Images</p>
+<span class="upload__note">or click to browse (1–5 images)</span>
+</div>
+
+</label>
+
+
+            <!-- SETTINGS PANEL -->
+            <details class="settings">
+
+                <summary class="settings__toggle">Advanced Settings</summary>
+
+                <div class="settings__grid">
+
+                    <!-- Page Size -->
+                    <div class="field">
+                        <label>Page Size</label>
+                        <select>
+<option>Auto</option>
+<option>A4</option>
+<option>Letter</option>
+</select>
+                    </div>
+
+                    <!-- Orientation -->
+                    <div class="field">
+                        <label>Orientation</label>
+                        <select>
+<option>Auto</option>
+<option>Portrait</option>
+<option>Landscape</option>
+</select>
+                    </div>
+
+                    <!-- Margin -->
+                    <div class="field">
+                        <label>Margin</label>
+                        <select>
+<option>Small</option>
+<option>None</option>
+<option>Medium</option>
+<option>Large</option>
+</select>
+                    </div>
+
+                    <!-- Quality -->
+                    <div class="field">
+                        <label>Quality</label>
+                        <select>
+<option>High (0.9)</option>
+<option>Medium (0.7)</option>
+<option>Low (0.5)</option>
+</select>
+                    </div>
+
+                </div>
+            </details>
+
+
+            <!-- ACTION BUTTON -->
+            <button class="btn">Convert to PDF</button>
+
+
+            <!-- Preview Section -->
+            <section class="preview">
+                <p class="preview__text">Image preview will appear here</p>
+            </section>
+
+
+            <!-- Result Section -->
+            <section class="result">
+                <p class="result__text">Generated PDF will appear here</p>
+            </section>
+
+
+        </section>
+    </main>
+
+</body>
+
+</html>
