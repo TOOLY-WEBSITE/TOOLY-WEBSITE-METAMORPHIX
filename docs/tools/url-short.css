@@ -1,0 +1,130 @@
+/* ===========================
+   Global Page Styling
+=========================== */
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #0e0e1f, #1c1c3c);
+    color: #fff;
+}
+
+
+/* ===========================
+   Container (Glassmorphism)
+=========================== */
+
+.container {
+    max-width: 650px;
+    margin: 80px auto;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ===========================
+   Headers
+=========================== */
+
+h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 32px;
+}
+
+.muted {
+    text-align: center;
+    opacity: 0.75;
+    margin-bottom: 24px;
+}
+
+
+/* ===========================
+   Form Row
+=========================== */
+
+.form-row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* ===========================
+   Input Box
+=========================== */
+
+input[type="url"] {
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+}
+
+input[type="url"]::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* ===========================
+   Buttons
+=========================== */
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 14px;
+    background: rgba(0, 150, 255, 0.7);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.btn:hover {
+    background: rgba(0, 150, 255, 1);
+    transform: translateY(-3px);
+}
+
+
+/* ===========================
+   Result Box
+=========================== */
+
+#shortUrlResult {
+    margin-top: 15px;
+    padding: 12px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: none;
+    text-align: center;
+    word-break: break-all;
+}
+
+
+/* ===========================
+   Mobile Responsive
+=========================== */
+
+@media (max-width: 600px) {
+    .container {
+        margin: 40px 16px;
+        padding: 24px;
+    }
+    h1 {
+        font-size: 26px;
+    }
+}

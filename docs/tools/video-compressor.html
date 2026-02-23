@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Video Compressor - Tooly</title>
+    <link rel="stylesheet" href="vid-comp.css">
+</head>
+
+<body>
+    <nav class="navbar"></nav>
+
+    <main class="container">
+        <h1>Video Compressor</h1>
+        <p class="muted">Basic client UI for uploading video and requesting a compressed version (server/ffmpeg).</p>
+
+        <div class="form-row">
+            <input id="videoUpload" type="file" accept="video/*">
+        </div>
+        <div id="successToast" class="toast">✔ Video compressed successfully!</div>
+
+        <div class="form-row">
+            <label>Target resolution</label>
+            <select id="videoRes">
+        <option>720p</option>
+        <option>480p</option>
+        <option>360p</option>
+      </select>
+        </div>
+
+        <div class="form-row">
+            <button class="btn" id="videoCompressBtn">Compress</button>
+        </div>
+
+        <div id="videoResult"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

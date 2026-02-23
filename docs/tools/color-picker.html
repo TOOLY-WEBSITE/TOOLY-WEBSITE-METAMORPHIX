@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Color Picker - Tooly</title>
+    <link rel="stylesheet" href="color.css">
+</head>
+
+<body>
+    <nav class="navbar">Color Picker Tool</nav>
+
+    <main class="container">
+        <h1>Color Picker</h1>
+        <p class="muted">Pick a color and get HEX/RGB values instantly.</p>
+
+        <!-- Color Preview -->
+        <div id="preview"></div>
+
+        <!-- Single Color Picker -->
+        <div class="form-row">
+            <input id="colorInput" type="color" value="#ff0000">
+        </div>
+
+        <!-- HEX + RGB outputs -->
+        <div class="form-row two-col">
+            <input id="hexOut" type="text" readonly>
+            <button class="copy-btn" data-target="hexOut">Copy</button>
+        </div>
+
+        <div class="form-row two-col">
+            <input id="rgbOut" type="text" readonly>
+            <button class="copy-btn" data-target="rgbOut">Copy</button>
+        </div>
+
+        <hr/>
+
+        <h2>Gradient Picker</h2>
+        <p class="muted">Choose two colors to generate a CSS gradient.</p>
+
+        <!-- Gradient Pickers -->
+        <div class="form-row">
+            <input id="g1" type="color" value="#ff0000">
+            <input id="g2" type="color" value="#0000ff">
+        </div>
+
+        <!-- Gradient Box -->
+        <div id="gradientBox"></div>
+
+        <!-- Gradient Code -->
+        <div class="form-row two-col">
+            <input id="gradientCode" type="text" readonly>
+            <button class="copy-btn" data-target="gradientCode">Copy</button>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
