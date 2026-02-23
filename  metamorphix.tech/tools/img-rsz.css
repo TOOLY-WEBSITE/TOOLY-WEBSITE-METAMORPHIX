@@ -1,0 +1,164 @@
+/* GLOBAL PAGE STYLE */
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #0a0a0a;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+
+/* MAIN CONTAINER */
+
+.container {
+    width: 90%;
+    max-width: 720px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #00eaff;
+    text-shadow: 0 0 12px #00eaff;
+}
+
+.muted {
+    text-align: center;
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+
+/* FORM ROWS */
+
+.form-row {
+    margin-bottom: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+}
+
+
+/* FILE INPUT */
+
+input[type="file"] {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 14px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    color: white;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background: #00eaff;
+    color: #000;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    filter: brightness(1.1);
+}
+
+
+/* NUMBER INPUTS */
+
+input[type="number"] {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    width: 48%;
+    color: #fff;
+    outline: none;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+input[type="number"]:focus {
+    border: 1px solid #00eaff;
+    box-shadow: 0 0 8px #00eaff;
+}
+
+
+/* BUTTON STYLE */
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    color: #000;
+    background: linear-gradient(90deg, #00eaff, #00ff95);
+    box-shadow: 0 0 16px rgba(0, 255, 255, 0.5);
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 22px #00eaff;
+}
+
+
+/* PREVIEW BOX */
+
+#resizePreview {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#resizePreview img {
+    max-width: 100%;
+    border-radius: 14px;
+    margin-top: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    input[type="number"] {
+        width: 100%;
+    }
+    .container {
+        padding: 22px;
+    }
+}

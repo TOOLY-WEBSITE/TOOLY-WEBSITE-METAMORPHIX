@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Remover - Tooly</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="bg-remover.css">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h1>Background Remover</h1>
+
+        <label class="upload-box" for="file-input">
+        <p>Click to upload an image</p>
+    </label>
+        <input type="file" id="file-input" accept="image/*">
+
+        <img id="preview">
+        <br>
+        <button id="remove-btn">Remove Background</button>
+
+        <img id="result-img">
+
+        <a id="download" download="removed-bg.png">Download Image</a>
+    </div>
+
+    <!-- JS -->
+    <script src="bg-remover.js"></script>
+
+</body>
+
+</html>

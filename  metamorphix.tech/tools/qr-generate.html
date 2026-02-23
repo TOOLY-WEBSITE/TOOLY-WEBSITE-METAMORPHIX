@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>QR Code Generator - Tooly</title>
+    <link rel="stylesheet" href="qr-gnrt.css">
+</head>
+
+<body>
+    <nav class="navbar"></nav>
+
+    <main class="container">
+        <h1>QR Code Generator</h1>
+        <p class="muted">Enter text or URL to generate a QR code and download it.</p>
+
+        <div class="form-row">
+            <input id="qrText" type="text" placeholder="Text or URL">
+        </div>
+
+        <div class="form-row">
+            <button class="btn" id="qrGenBtn">Generate QR</button>
+            <button class="btn" id="qrDownBtn">Download</button>
+        </div>
+
+        <div id="qrCanvas"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

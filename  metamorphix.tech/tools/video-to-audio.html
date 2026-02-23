@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Video → Audio - Tooly</title>
+    <link rel="stylesheet" href="vd-ad.css">
+</head>
+
+<body>
+    <nav class="navbar"> </nav>
+
+    <main class="container">
+        <h1>Video to Audio (MP4 → MP3)</h1>
+        <p class="muted">Upload a video and extract its audio as MP3 (server or ffmpeg needed).</p>
+
+        <div id="loading" class="loading-box" style="display:none;">
+            <div class="loader"></div>
+            <p>Extracting audio...</p>
+        </div>
+
+        <div class="form-row">
+            <input id="videoFile" type="file" accept="video/*">
+        </div>
+
+        <div class="form-row">
+            <button class="btn" id="extractAudioBtn">Extract Audio</button>
+        </div>
+
+        <div id="audioResult"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
