@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image Format Converter - Tooly</title>
+    <link rel="stylesheet" href="../../../css/tools/image/image-format.css">
+</head>
+
+<body>
+
+
+    <main class="container">
+
+        <div class="card">
+
+            <h1>Image Format Converter</h1>
+            <p class="muted">Convert images to JPG, PNG or WEBP instantly</p>
+
+            <!-- Upload -->
+            <div class="form-group">
+                <label class="upload-box">
+<input id="fmtImage" type="file" accept="image/*">
+<span>Click or Drag Image Here</span>
+</label>
+            </div>
+
+            <!-- Format -->
+            <div class="form-group">
+                <label for="outFormat">Output Format</label>
+                <select id="outFormat">
+<option value="image/jpeg">JPG</option>
+<option value="image/png">PNG</option>
+<option value="image/webp">WEBP</option>
+</select>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <button class="btn" id="convertBtn">Convert Image</button>
+            </div>
+
+            <!-- Result -->
+            <div id="formatResult" class="result">
+                Converted file will appear here
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image Resizer - Tooly</title>
+    <link rel="stylesheet" href="../../../css/tools/image/image-resize.css">
+</head>
+
+<body>
+    <main class="app">
+        <section class="tool">
+            <header class="tool-header">
+                <h1>Image Resizer</h1>
+                <p class="subtitle">Resize your image by setting custom width and height</p>
+            </header>
+
+            <!-- Upload -->
+            <label class="upload-box">
+<input id="resizeImage" type="file" accept="image/*">
+<span>Click or Drag Image Here</span>
+</label>
+
+
+            <!-- Size Inputs -->
+            <div class="size-grid">
+
+                <div class="field">
+                    <label>Width (px)</label>
+                    <input id="resizeW" type="number" min="1" placeholder="800">
+                </div>
+
+                <div class="field">
+                    <label>Height (px)</label>
+                    <input id="resizeH" type="number" min="1" placeholder="600">
+                </div>
+            </div>
+
+            <!-- Button -->
+            <button class="btn" id="resizeBtn">Resize & Download</button>
+
+            <!-- Preview -->
+            <div id="resizePreview" class="preview">
+                Preview will appear here
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
