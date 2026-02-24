@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<!-- Main pages -->
+<url><loc>https://t00ly.xyz/</loc></url>
+<url><loc>https://t00ly.xyz/contact.html</loc></url>
+<url><loc>https://t00ly.xyz/login.html</loc></url>
+
+<!-- Image tools -->
+<url><loc>https://t00ly.xyz/pages/tools/images/bg-remove.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/images/image-compress.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/images/image-format.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/images/image-pdf.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/images/image-resize.html</loc></url>
+
+<!-- PDF tools -->
+<url><loc>https://t00ly.xyz/pages/tools/pdf/pdf-compressor.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/pdf/pdf-merge.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/pdf/pdf-splitter.html</loc></url>
+
+<!-- Text tools -->
+<url><loc>https://t00ly.xyz/pages/tools/text/text-case.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/text/text-pdf.html</loc></url>
+
+<!-- Utility tools -->
+<url><loc>https://t00ly.xyz/pages/tools/utility/color-picker.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/utility/json-formatter.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/utility/qr-generate.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/utility/qr-scanner.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/utility/url-shortner.html</loc></url>
+
+<!-- Video tools -->
+<url><loc>https://t00ly.xyz/pages/tools/video/video-audio.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/video/video-compress.html</loc></url>
+<url><loc>https://t00ly.xyz/pages/tools/video/video-enhance.html</loc></url>
+
+</urlset>
