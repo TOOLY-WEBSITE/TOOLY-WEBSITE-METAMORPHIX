@@ -132,7 +132,7 @@ python -m http.server
 
 Open browser
 
-http://127.0.0.1:8000/docs
+https://t00ly.xyz/
 
 ---
 
