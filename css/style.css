@@ -206,15 +206,17 @@ body.dark .search-wrap input {
     color: var(--text);
 }
 
+
 .search-icon {
     position: absolute;
-    right: 14px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    opacity: 0.65;
-    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    opacity: 2.0s;
+    pointer-events: none;
 }
-
 
 /* GRID */
 
@@ -395,4 +397,5 @@ body.dark .footer-bottom {
         transition: none !important;
         scroll-behavior: auto !important;
     }
+
 }
