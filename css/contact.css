@@ -1,8 +1,10 @@
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: #ffffff; /* pure white background */
-    color: #2d1b3d; /* dark purple text */
+    background: #ffffff;
+    /* pure white background */
+    color: #2d1b3d;
+    /* dark purple text */
     overflow-x: hidden;
 }
 
@@ -11,7 +13,7 @@ body {
 
 .navbar {
     width: 100%;
-    padding: 15px 30px;
+    padding: 10px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,6 +23,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 999;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -34,18 +37,14 @@ body {
     display: flex;
     align-items: center;
     gap: 25px;
+    flex-wrap: wrap;
 }
-
 
 .nav-links a {
     color: #2d1b3d;
     text-decoration: none;
     font-weight: 500;
     transition: 0.3s;
-}
-
-.nav-links a + a {
-    margin-left: 25px;
 }
 
 .nav-links a:hover,
@@ -71,7 +70,8 @@ body {
     padding: 30px;
     border-radius: 16px;
     box-shadow: 0 0 25px rgba(123, 44, 255, 0.25);
-    border: 2px solid rgba(123, 44, 255, 0.4); /* glowing border */
+    border: 2px solid rgba(123, 44, 255, 0.4);
+    /* glowing border */
 }
 
 .contact-form label {
@@ -115,7 +115,8 @@ body {
     font-size: 16px;
     font-weight: 600;
     color: #ffffff;
-    background: linear-gradient(90deg, #7b2cff, #b266ff); /* purple gradient */
+    background: linear-gradient(90deg, #7b2cff, #b266ff);
+    /* purple gradient */
     box-shadow: 0 0 15px rgba(123, 44, 255, 0.5);
     transition: 0.3s ease;
 }
@@ -166,6 +167,7 @@ body {
         margin-top: 20px;
     }
 }
+
 
 /* FOOTER */
 
