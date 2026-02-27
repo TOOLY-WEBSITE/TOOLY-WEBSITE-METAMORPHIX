@@ -1,0 +1,239 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #ffffff; /* pure white background */
+    color: #2d1b3d; /* dark purple text */
+    overflow-x: hidden;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(128, 0, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(128, 0, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #7b2cff;
+    text-shadow: 0 0 10px rgba(123, 44, 255, 0.6);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.nav-links a {
+    color: #2d1b3d;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a + a {
+    margin-left: 25px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #7b2cff;
+    text-shadow: 0 0 8px rgba(123, 44, 255, 0.6);
+}
+
+
+/* CONTACT FORM CONTAINER */
+
+.contact-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.contact-form {
+    width: 450px;
+    background: #ffffff;
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(123, 44, 255, 0.25);
+    border: 2px solid rgba(123, 44, 255, 0.4); /* glowing border */
+}
+
+.contact-form label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 10px;
+    display: block;
+    color: #4b2c6f;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(123, 44, 255, 0.3);
+    font-size: 15px;
+    background: #faf7ff;
+    outline: none;
+    color: #2d1b3d;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    box-shadow: 0 0 12px rgba(123, 44, 255, 0.6);
+    border-color: #7b2cff;
+}
+
+
+/* BUTTON STYLE */
+
+.btn {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(90deg, #7b2cff, #b266ff); /* purple gradient */
+    box-shadow: 0 0 15px rgba(123, 44, 255, 0.5);
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 22px rgba(123, 44, 255, 0.8);
+    filter: brightness(1.05);
+}
+
+
+/* SUCCESS TOAST POPUP */
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: -300px;
+    background: #7b2cff;
+    color: #ffffff;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 0 18px rgba(123, 44, 255, 0.6);
+    transition: 0.5s ease;
+    z-index: 9999;
+}
+
+.toast.show {
+    right: 20px;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 18px;
+    }
+    .nav-links a {
+        margin-left: 15px;
+    }
+    .contact-form {
+        width: 90%;
+        padding: 22px;
+    }
+    h2 {
+        margin-top: 20px;
+    }
+}
+
+/* FOOTER */
+
+.footer {
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(18px);
+    padding: 50px 18px 18px;
+}
+
+body.dark .footer {
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.footer-logo {
+    font-size: 22px;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    background-clip: text;
+    color: transparent;
+}
+
+.footer-text {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 320px;
+}
+
+.footer-col h4 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    display: block;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    margin: 8px 0;
+    transition: 0.2s ease;
+}
+
+.footer-col a:hover {
+    color: var(--accent);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+body.dark .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
