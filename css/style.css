@@ -398,3 +398,32 @@ body.dark .footer-bottom {
     }
 
 }
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+@media (max-width: 600px) {
+    .nav-right {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .navbar {
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width:768px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:768px){
+  .grid{
+    grid-template-columns:1fr !important;
+  }
+}
