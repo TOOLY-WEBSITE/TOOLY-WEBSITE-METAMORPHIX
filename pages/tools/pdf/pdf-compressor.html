@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PDF Compressor - Tooly</title>
-
     <link rel="stylesheet" href="../../../css/tools/pdf/pdf-compress.css">
 </head>
 
@@ -14,58 +13,145 @@
     <main class="container">
 
         <h1>Compress PDF File</h1>
-        <p class="muted">Drag or select a PDF, choose compression level, export compressed PDF.</p>
+        <p class="muted">Upload a PDF, choose size, compress instantly.</p>
 
-        <!-- UPLOAD BOX -->
-        <div class="form-row">
+        <!-- DROP ZONE -->
+        <div class="drop-zone" id="dropZone">
+            <p id="dzText">Drag & Drop PDF here</p>
+            <span>or click to upload</span>
+            <input type="file" id="pdfFile" accept="application/pdf">
+        </div>
 
-            <label for="pdfFile" class="drop-zone">
-<p>Drag & Drop PDF here</p>
-<span>Click anywhere inside this box to upload</span>
-</label>
+        <!-- FILE CARD -->
+        <div id="fileCard" class="file-card hidden">
+            <span id="fileName"></span>
+            <span id="fileSize"></span>
+        </div>
 
-            <input id="pdfFile" type="file" accept="application/pdf">
+        <!-- SIZE SELECT -->
+        <button class="select-btn" id="selectBtn">Select Size</button>
+
+        <div class="size-selector" id="sizeBox">
+
+            <label><input type="radio" name="size" value="50kb">40-50kb</label>
+            <label><input type="radio" name="size" value="150kb">50-150kb</label>
+            <label><input type="radio" name="size" value="300kb">200-300kb</label>
+            <label><input type="radio" name="size" value="500kb">Under 500kb</label>
+            <label><input type="radio" name="size" value="1mb">Under 1MB</label>
 
         </div>
 
-        <!-- SELECT SIZE BUTTON -->
-        <div class="form-row">
-
-            <button type="button" class="select-btn" onclick="toggleSize()">
-Select Size
-</button>
-
-            <div class="size-selector" id="sizeBox">
-
-                <input type="radio" name="size" id="s1" value="50">
-                <label for="s1">40kb–50kb</label>
-
-                <input type="radio" name="size" id="s2" value="150">
-                <label for="s2">50kb–150kb</label>
-
-                <input type="radio" name="size" id="s3" value="300">
-                <label for="s3">200kb–300kb</label>
-
-                <input type="radio" name="size" id="s4" value="500">
-                <label for="s4">Under 500kb</label>
-
-                <input type="radio" name="size" id="s5" value="1000">
-                <label for="s5">Under 1MB</label>
-
-            </div>
-
+        <!-- PROGRESS -->
+        <div class="progress hidden" id="progressBox">
+            <div class="bar" id="bar"></div>
         </div>
 
-        <button class="btn">Compress PDF</button>
+        <!-- BUTTON -->
+        <button class="compress-btn" id="compressBtn">Compress PDF</button>
 
-        <div id="pdfResult"></div>
+        <!-- RESULT -->
+        <div id="result"></div>
 
     </main>
 
     <script>
-        function toggleSize() {
-            document.getElementById("sizeBox").classList.toggle("show");
+        const dropZone = document.getElementById("dropZone");
+        const fileInput = document.getElementById("pdfFile");
+        const card = document.getElementById("fileCard");
+        const fileName = document.getElementById("fileName");
+        const fileSize = document.getElementById("fileSize");
+        const result = document.getElementById("result");
+        const bar = document.getElementById("bar");
+        const progressBox = document.getElementById("progressBox");
+        const selectBtn = document.getElementById("selectBtn");
+        const sizeBox = document.getElementById("sizeBox");
+
+        /* CLICK UPLOAD */
+        dropZone.addEventListener("click", () => fileInput.click());
+
+        /* FILE SELECT */
+        fileInput.addEventListener("change", handleFile);
+
+        /* DRAG EVENTS */
+        dropZone.addEventListener("dragover", e => {
+            e.preventDefault();
+            dropZone.classList.add("drag");
+        });
+
+        dropZone.addEventListener("dragleave", () => {
+            dropZone.classList.remove("drag");
+        });
+
+        dropZone.addEventListener("drop", e => {
+            e.preventDefault();
+            dropZone.classList.remove("drag");
+            fileInput.files = e.dataTransfer.files;
+            handleFile();
+        });
+
+        /* FILE VALIDATION */
+        function handleFile() {
+            let file = fileInput.files[0];
+            if (!file) return;
+
+            if (file.type !== "application/pdf") {
+                showError("Only PDF allowed");
+                return;
+            }
+
+            if (file.size > 10 * 1024 * 1024) {
+                showError("Max file size 10MB");
+                return;
+            }
+
+            card.classList.remove("hidden");
+            fileName.innerText = file.name;
+            fileSize.innerText = (file.size / 1024 / 1024).toFixed(2) + " MB";
+            result.innerHTML = "";
         }
+
+        /* ERROR */
+        function showError(msg) {
+            result.innerHTML = `<span class="error">${msg}</span>`;
+            card.classList.add("hidden");
+        }
+
+        /* SIZE DROPDOWN */
+        selectBtn.onclick = () => {
+            sizeBox.classList.toggle("show");
+        };
+
+        document.querySelectorAll('input[name="size"]').forEach(r => {
+            r.onchange = () => {
+                selectBtn.innerText = r.value;
+                sizeBox.classList.remove("show");
+            };
+        });
+
+        /* COMPRESS SIMULATION */
+        document.getElementById("compressBtn").onclick = () => {
+
+            if (!fileInput.files[0]) {
+                showError("Upload PDF first");
+                return;
+            }
+
+            progressBox.classList.remove("hidden");
+            bar.style.width = "0%";
+
+            let p = 0;
+            let interval = setInterval(() => {
+                p += 5;
+                bar.style.width = p + "%";
+
+                if (p >= 100) {
+                    clearInterval(interval);
+                    result.innerHTML =
+                        `<a class="download">Download Compressed PDF</a>`;
+                }
+            }, 120);
+
+        };
     </script>
 
 </body>
