@@ -1,3 +1,4 @@
+// ---------- DARK MODE ----------
 function toggleDarkMode() {
     document.body.classList.toggle("dark");
 
@@ -8,11 +9,16 @@ function toggleDarkMode() {
     }
 }
 
+// Load saved theme
 (function loadTheme() {
     const saved = localStorage.getItem("toolyTheme");
-    if (saved === "dark") document.body.classList.add("dark");
+    if (saved === "dark") {
+        document.body.classList.add("dark");
+    }
 })();
 
+
+// ---------- USER NAME ----------
 function showUserName() {
     const user = localStorage.getItem("toolyUser") || "";
     const el = document.getElementById("userNameDisplay");
@@ -26,41 +32,58 @@ function showUserName() {
     }
 }
 
-function updateNavbar() {
-    // Optional placeholder (you can keep your own logic)
-}
 
+// ---------- SEARCH FILTER ----------
 function filterTools() {
-    const input = document.getElementById("toolSearch").value.toLowerCase();
+    const inputEl = document.getElementById("toolSearch");
+    if (!inputEl) return;
+
+    const value = inputEl.value.toLowerCase();
     const cards = document.querySelectorAll(".card");
 
-    cards.forEach((card) => {
+    cards.forEach(card => {
         const text = card.innerText.toLowerCase();
-        card.style.display = text.includes(input) ? "block" : "none";
-    });
-}
 
-function filterCategory(category) {
-    const chips = document.querySelectorAll(".chip");
-    chips.forEach((c) => c.classList.remove("active"));
-
-    event.target.classList.add("active");
-
-    const cards = document.querySelectorAll(".card");
-
-    cards.forEach((card) => {
-        const cat = card.getAttribute("data-category") || "";
-
-        if (category === "all") {
+        if (value === "" || value === "tooly" || text.includes(value)) {
             card.style.display = "block";
         } else {
-            card.style.display = cat.includes(category) ? "block" : "none";
+            card.style.display = "none";
         }
     });
-
 }
 
-showUserName();
-updateNavbar();
 
-document.getElementById("year").innerText = new Date().getFullYear();
+// ---------- CATEGORY FILTER ----------
+function filterCategory(category) {
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        const cat = card.getAttribute("data-category") || "";
+
+        if (category === "all" || cat.includes(category)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+
+// ---------- YEAR AUTO UPDATE ----------
+function setYear() {
+    const yearEl = document.getElementById("year");
+    if (yearEl) {
+        yearEl.innerText = new Date().getFullYear();
+    }
+}
+
+// ---------- INITIALIZE ----------
+document.addEventListener("DOMContentLoaded", () => {
+    showUserName();
+    setYear();
+
+    const input = document.getElementById("toolSearch");
+    if (input) {
+        input.addEventListener("input", filterTools);
+    }
+});
