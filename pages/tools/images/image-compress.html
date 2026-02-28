@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Compressor</title>
+
     <link rel="stylesheet" href="../../../css/tools/image/image-compress.css">
 </head>
 
@@ -12,36 +13,57 @@
 
     <div class="wrapper">
         <div class="card">
-<form action="http://127.0.0.1:5000/compress" method="POST" enctype="multipart/form-data">
-            <h1>Image Compressor</h1>
-            <p class="subtitle">Upload images and reduce file size instantly</p>
 
-            <label class="drop-area">
-<input type="file"  name="images" multiple accept="image/*">
+            <form action="http://127.0.0.1:5000/compress" method="POST" enctype="multipart/form-data">
+
+                <h1>Compress Your Image</h1>
+                <p class="subtitle">Upload images and reduce file size instantly</p>
+
+                <!-- Upload Area -->
+                <label class="drop-area">
+<input type="file" name="images" multiple accept="image/*">
 <div class="drop-content">
 <p>Drag & Drop Images</p>
-<span>or click to browse</span>
+<span>or <br> Click to Browse</span>
 </div>
 </label>
 
-            <div class="control">
-                <label>Compression Quality</label>
-                <input type="range" name="quality" min="10" max="95" step="5" value="70">
-            </div>
-<div class="loader" style="display: none;"></div>
-            <button class="compress-btn">Compress Images</button>
+                <!-- Compression Level -->
+                <div class="quality-selector">
+                    <label>Compression Level</label>
 
-            <div class="result">
-                <p>Compressed files will appear here</p>
-            </div>
+                    <div class="quality-options">
+
+                        <input type="radio" name="qualityPreset" id="low" onclick="setQuality(30)">
+                        <label for="low">Low</label>
+
+                        <input type="radio" name="qualityPreset" id="medium" onclick="setQuality(60)" checked>
+                        <label for="medium">Medium</label>
+
+                        <input type="radio" name="qualityPreset" id="high" onclick="setQuality(85)">
+                        <label for="high">High</label>
+
+                    </div>
+                </div>
+
+                <input type="hidden" name="quality" id="qualityValue" value="60">
+
+                <div class="loader" id="loader"></div>
+
+                <button class="compress-btn">Compress Image</button>
+
+                <a id="downloadBtn" class="download-btn" style="display:none;">Download Your Image</a>
+
+            </form>
 
         </div>
     </div>
-</form>
 
-<script src="../../../js/core/image-compress.js">
-
-</script>
+    <script>
+        function setQuality(val) {
+            document.getElementById("qualityValue").value = val;
+        }
+    </script>
 
 </body>
 
