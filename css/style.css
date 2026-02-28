@@ -60,7 +60,7 @@ body.dark .navbar {
 }
 
 .logo {
-    font-size: 32px;
+    font-size: 22px;
     font-weight: 800;
     background: linear-gradient(90deg, var(--accent), var(--accent-2));
     background-clip: text;
@@ -79,6 +79,10 @@ body.dark .navbar {
     color: var(--text);
     opacity: 0.85;
     transition: 0.25s ease;
+    -webkit-transition: 0.25s ease;
+    -moz-transition: 0.25s ease;
+    -ms-transition: 0.25s ease;
+    -o-transition: 0.25s ease;
 }
 
 .nav-right a:hover {
@@ -133,6 +137,11 @@ body.dark .navbar {
     letter-spacing: -1px;
 }
 
+.hero-sub {
+    margin-top: 10px;
+    font-size: 16px;
+    color: var(--muted);
+}
 
 .userline {
     margin-top: 16px;
@@ -201,7 +210,6 @@ body.dark .search-wrap input {
     color: var(--text);
 }
 
-
 .search-icon {
     position: absolute;
     right: 12px;
@@ -212,6 +220,7 @@ body.dark .search-wrap input {
     opacity: 2.0s;
     pointer-events: none;
 }
+
 
 /* GRID */
 
@@ -245,12 +254,6 @@ body.dark .search-wrap input {
     border: 1px solid var(--glass-border);
     box-shadow: 0 18px 46px rgba(0, 0, 0, 0.12);
     transition: 0.25s ease;
-}
-
-.card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
 }
 
 body.dark .card {
@@ -291,11 +294,7 @@ body.dark .card {
     transform: scale(1.05);
 }
 
-.hero-sub {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-}
+
 /* FOOTER */
 
 .footer {
@@ -402,34 +401,10 @@ body.dark .footer-bottom {
         transition: none !important;
         scroll-behavior: auto !important;
     }
-
 }
 
-html, body {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-@media (max-width: 600px) {
-    .nav-right {
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-    }
-
-    .navbar {
-        padding: 10px 14px;
-    }
-}
-
-@media (max-width:768px){
-  .grid{
-    grid-template-columns:1fr;
-  }
-}
-
-@media (max-width:768px){
-  .grid{
-    grid-template-columns:1fr !important;
-  }
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
