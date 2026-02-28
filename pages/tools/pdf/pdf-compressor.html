@@ -2,44 +2,72 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PDF Compressor - Tooly</title>
+
     <link rel="stylesheet" href="../../../css/tools/pdf/pdf-compress.css">
 </head>
 
 <body>
-    <nav class="navbar"></nav>
 
     <main class="container">
-        <h1>PDF Compressor</h1>
+
+        <h1>Compress PDF File</h1>
         <p class="muted">Drag or select a PDF, choose compression level, export compressed PDF.</p>
 
-        <!-- DRAG & DROP ZONE HERE -->
+        <!-- UPLOAD BOX -->
         <div class="form-row">
-            <div class="drop-zone" id="dropZone">
-                <p>Drag & Drop PDF here or Click to Upload</p>
-            </div>
+
+            <label for="pdfFile" class="drop-zone">
+<p>Drag & Drop PDF here</p>
+<span>Click anywhere inside this box to upload</span>
+</label>
+
             <input id="pdfFile" type="file" accept="application/pdf">
+
         </div>
 
-        <!-- Compression Level -->
+        <!-- SELECT SIZE BUTTON -->
         <div class="form-row">
-            <label>Compression level</label>
-            <select id="pdfLevel">
-            <option value="high">High (small)</option>
-            <option value="medium" selected>Medium</option>
-            <option value="low">Low (better quality)</option>
-        </select>
+
+            <button type="button" class="select-btn" onclick="toggleSize()">
+Select Size
+</button>
+
+            <div class="size-selector" id="sizeBox">
+
+                <input type="radio" name="size" id="s1" value="50">
+                <label for="s1">40kb–50kb</label>
+
+                <input type="radio" name="size" id="s2" value="150">
+                <label for="s2">50kb–150kb</label>
+
+                <input type="radio" name="size" id="s3" value="300">
+                <label for="s3">200kb–300kb</label>
+
+                <input type="radio" name="size" id="s4" value="500">
+                <label for="s4">Under 500kb</label>
+
+                <input type="radio" name="size" id="s5" value="1000">
+                <label for="s5">Under 1MB</label>
+
+            </div>
+
         </div>
 
-        <!-- Compress Button -->
-        <div class="form-row">
-            <button class="btn" id="pdfCompressBtn">Compress</button>
-        </div>
+        <button class="btn">Compress PDF</button>
 
         <div id="pdfResult"></div>
+
     </main>
+
+    <script>
+        function toggleSize() {
+            document.getElementById("sizeBox").classList.toggle("show");
+        }
+    </script>
+
 </body>
 
 </html>
