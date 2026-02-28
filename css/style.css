@@ -416,3 +416,9 @@ html, body {
         padding: 10px 14px;
     }
 }
+
+@media (max-width:768px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
