@@ -133,11 +133,6 @@ body.dark .navbar {
     letter-spacing: -1px;
 }
 
-.hero-sub {
-    margin-top: 10px;
-    font-size: 16px;
-    color: var(--muted);
-}
 
 .userline {
     margin-top: 16px;
@@ -290,7 +285,11 @@ body.dark .card {
     transform: scale(1.05);
 }
 
-
+.hero-sub {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
 /* FOOTER */
 
 .footer {
