@@ -1,118 +1,227 @@
+/* RESET */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Segoe UI, sans-serif;
 }
+
+
+/* BODY */
 
 body {
-    background: #f5f7fb;
-    padding: 20px;
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
-/* ---------- NAVBAR (empty placeholder) ---------- */
-
-.navbar {
-    height: 60px;
-}
-
-
-/* ---------- MAIN CONTAINER ---------- */
+/* CONTAINER */
 
 .container {
-    max-width: 520px;
-    margin: 0 auto;
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 14px;
-    box-shadow: 0 3px 18px rgba(0, 0, 0, 0.08);
+    background: #0b1220;
+    padding: 50px;
+    border-radius: 20px;
+    width: 650px;
+    max-width: 95%;
+    box-shadow: 0 0 25px rgba(168, 85, 247, .35), 0 25px 60px rgba(0, 0, 0, 0.7);
+    animation: fadeIn .6s ease;
 }
+
+
+/* TITLE */
 
 h1 {
-    font-size: 26px;
-    margin-bottom: 8px;
     text-align: center;
+    margin-bottom: 8px;
+    font-size: 28px;
 }
+
+
+/* SUBTITLE */
 
 .muted {
-    color: #666;
     text-align: center;
-    margin-bottom: 22px;
+    color: #9ca3af;
+    margin-bottom: 30px;
+    font-size: 14px;
 }
 
 
-/* ---------- FORM ROW ---------- */
+/* ROW */
 
 .form-row {
-    margin-bottom: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    margin-bottom: 25px;
 }
 
 
-/* ---------- DRAG & DROP ZONE ---------- */
+/* DROP ZONE */
 
 .drop-zone {
-    width: 100%;
-    padding: 30px;
-    border: 2px dashed #6a6a6a;
-    border-radius: 14px;
-    background: #fafafa;
-    text-align: center;
+    border: 2px dashed #334155;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
     cursor: pointer;
-    transition: 0.25s;
+    background: #020617;
+    transition: .3s;
+    text-align: center;
+    gap: 8px;
+    box-shadow: 0 0 25px rgba(168, 85, 247, .35);
 }
 
 .drop-zone:hover {
-    background: #f0f0f0;
-}
-
-.drop-zone p {
-    font-size: 15px;
-    color: #555;
+    border-color: #a855f7;
+    box-shadow: 0 0 35px rgba(168, 85, 247, .8), 0 0 60px rgba(168, 85, 247, .4);
 }
 
 
-/* Hide native file input */
+/* HIDE INPUT */
 
 #pdfFile {
     display: none;
 }
 
+.drop-zone p {
+    font-weight: 600;
+}
 
-/* ---------- SELECT BOX ---------- */
-
-select {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #999;
-    outline: none;
+.drop-zone span {
+    font-size: 13px;
+    color: #9ca3af;
 }
 
 
-/* ---------- BUTTON ---------- */
+/* SELECT BUTTON */
+
+.select-btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #9333ea, #a855f7);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.select-btn:hover {
+    box-shadow: 0 0 20px rgba(168, 85, 247, .8);
+}
+
+
+/* SIZE SELECTOR */
+
+.size-selector {
+    display: none;
+    margin-top: 15px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.size-selector.show {
+    display: flex;
+}
+
+
+/* HIDE RADIO */
+
+.size-selector input {
+    display: none;
+}
+
+
+/* SIZE OPTION */
+
+.size-selector label {
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: #020617;
+    border: 1px solid #1f2937;
+    cursor: pointer;
+    color: #9ca3af;
+    transition: .25s;
+}
+
+
+/* HOVER */
+
+.size-selector label:hover {
+    border-color: #a855f7;
+    color: white;
+}
+
+
+/* ACTIVE */
+
+.size-selector input:checked+label {
+    background: linear-gradient(135deg, #9333ea, #a855f7);
+    color: white;
+    box-shadow: 0 0 12px rgba(168, 85, 247, .9);
+}
+
+
+/* COMPRESS BUTTON */
 
 .btn {
-    padding: 12px;
-    background: #4d73ff;
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px;
     border: none;
-    color: #fff;
-    border-radius: 10px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    transition: 0.25s;
+    transition: .3s;
 }
 
 .btn:hover {
-    background: #3458e2;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px rgba(34, 197, 94, .35);
 }
 
 
-/* ---------- RESULT BOX ---------- */
+/* RESULT */
 
 #pdfResult {
-    margin-top: 20px;
+    margin-top: 25px;
     text-align: center;
+    color: #94a3b8;
     font-size: 14px;
+}
+
+
+/* ANIMATION */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+    .container {
+        padding: 30px;
+    }
+    .drop-zone {
+        height: 150px;
+    }
 }
