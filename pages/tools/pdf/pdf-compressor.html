@@ -2,44 +2,158 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PDF Compressor - Tooly</title>
     <link rel="stylesheet" href="../../../css/tools/pdf/pdf-compress.css">
 </head>
 
 <body>
-    <nav class="navbar"></nav>
 
     <main class="container">
-        <h1>PDF Compressor</h1>
-        <p class="muted">Drag or select a PDF, choose compression level, export compressed PDF.</p>
 
-        <!-- DRAG & DROP ZONE HERE -->
-        <div class="form-row">
-            <div class="drop-zone" id="dropZone">
-                <p>Drag & Drop PDF here or Click to Upload</p>
-            </div>
-            <input id="pdfFile" type="file" accept="application/pdf">
+        <h1>Compress PDF File</h1>
+        <p class="muted">Upload a PDF, choose size, compress instantly.</p>
+
+        <!-- DROP ZONE -->
+        <div class="drop-zone" id="dropZone">
+            <p id="dzText">Drag & Drop PDF here</p>
+            <span>or click to upload</span>
+            <input type="file" id="pdfFile" accept="application/pdf">
         </div>
 
-        <!-- Compression Level -->
-        <div class="form-row">
-            <label>Compression level</label>
-            <select id="pdfLevel">
-            <option value="high">High (small)</option>
-            <option value="medium" selected>Medium</option>
-            <option value="low">Low (better quality)</option>
-        </select>
+        <!-- FILE CARD -->
+        <div id="fileCard" class="file-card hidden">
+            <span id="fileName"></span>
+            <span id="fileSize"></span>
         </div>
 
-        <!-- Compress Button -->
-        <div class="form-row">
-            <button class="btn" id="pdfCompressBtn">Compress</button>
+        <!-- SIZE SELECT -->
+        <button class="select-btn" id="selectBtn">Select Size</button>
+
+        <div class="size-selector" id="sizeBox">
+
+            <label><input type="radio" name="size" value="50kb">40-50kb</label>
+            <label><input type="radio" name="size" value="150kb">50-150kb</label>
+            <label><input type="radio" name="size" value="300kb">200-300kb</label>
+            <label><input type="radio" name="size" value="500kb">Under 500kb</label>
+            <label><input type="radio" name="size" value="1mb">Under 1MB</label>
+
         </div>
 
-        <div id="pdfResult"></div>
+        <!-- PROGRESS -->
+        <div class="progress hidden" id="progressBox">
+            <div class="bar" id="bar"></div>
+        </div>
+
+        <!-- BUTTON -->
+        <button class="compress-btn" id="compressBtn">Compress PDF</button>
+
+        <!-- RESULT -->
+        <div id="result"></div>
+
     </main>
+
+    <script>
+        const dropZone = document.getElementById("dropZone");
+        const fileInput = document.getElementById("pdfFile");
+        const card = document.getElementById("fileCard");
+        const fileName = document.getElementById("fileName");
+        const fileSize = document.getElementById("fileSize");
+        const result = document.getElementById("result");
+        const bar = document.getElementById("bar");
+        const progressBox = document.getElementById("progressBox");
+        const selectBtn = document.getElementById("selectBtn");
+        const sizeBox = document.getElementById("sizeBox");
+
+        /* CLICK UPLOAD */
+        dropZone.addEventListener("click", () => fileInput.click());
+
+        /* FILE SELECT */
+        fileInput.addEventListener("change", handleFile);
+
+        /* DRAG EVENTS */
+        dropZone.addEventListener("dragover", e => {
+            e.preventDefault();
+            dropZone.classList.add("drag");
+        });
+
+        dropZone.addEventListener("dragleave", () => {
+            dropZone.classList.remove("drag");
+        });
+
+        dropZone.addEventListener("drop", e => {
+            e.preventDefault();
+            dropZone.classList.remove("drag");
+            fileInput.files = e.dataTransfer.files;
+            handleFile();
+        });
+
+        /* FILE VALIDATION */
+        function handleFile() {
+            let file = fileInput.files[0];
+            if (!file) return;
+
+            if (file.type !== "application/pdf") {
+                showError("Only PDF allowed");
+                return;
+            }
+
+            if (file.size > 10 * 1024 * 1024) {
+                showError("Max file size 10MB");
+                return;
+            }
+
+            card.classList.remove("hidden");
+            fileName.innerText = file.name;
+            fileSize.innerText = (file.size / 1024 / 1024).toFixed(2) + " MB";
+            result.innerHTML = "";
+        }
+
+        /* ERROR */
+        function showError(msg) {
+            result.innerHTML = `<span class="error">${msg}</span>`;
+            card.classList.add("hidden");
+        }
+
+        /* SIZE DROPDOWN */
+        selectBtn.onclick = () => {
+            sizeBox.classList.toggle("show");
+        };
+
+        document.querySelectorAll('input[name="size"]').forEach(r => {
+            r.onchange = () => {
+                selectBtn.innerText = r.value;
+                sizeBox.classList.remove("show");
+            };
+        });
+
+        /* COMPRESS SIMULATION */
+        document.getElementById("compressBtn").onclick = () => {
+
+            if (!fileInput.files[0]) {
+                showError("Upload PDF first");
+                return;
+            }
+
+            progressBox.classList.remove("hidden");
+            bar.style.width = "0%";
+
+            let p = 0;
+            let interval = setInterval(() => {
+                p += 5;
+                bar.style.width = p + "%";
+
+                if (p >= 100) {
+                    clearInterval(interval);
+                    result.innerHTML =
+                        `<a class="download">Download Compressed PDF</a>`;
+                }
+            }, 120);
+
+        };
+    </script>
+
 </body>
 
 </html>
