@@ -60,7 +60,7 @@ body.dark .navbar {
 }
 
 .logo {
-    font-size: 22px;
+    font-size: 32px;
     font-weight: 800;
     background: linear-gradient(90deg, var(--accent), var(--accent-2));
     background-clip: text;
