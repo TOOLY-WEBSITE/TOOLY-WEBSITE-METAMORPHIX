@@ -37,16 +37,27 @@
 
     <header class="hero ">
         <div class="hero-inner ">
-            <h1>Tooly — All-in-One Free Online Tools</h1>
+            <h1>Tooly — All-in-One Free Online Tools</h1>  
 
-            <p class="hero-sub ">
-                Tooly is the official free online tools website for PDF, image, video and text editing. Compress, convert, generate and enhance files — fast, secure and easy.
-            </p>
+            <div style="position:relative; width:min(560px,92%);">
 
-            <div class="hero-actions ">
-                <div class="search-wrap ">
-                    <input id="toolSearch " type="text " placeholder="Search tools... (ex: pdf, image, qr) " onkeyup="filterTools() " />
-                </div>
+  <input id="toolSearch" type="text"
+    placeholder="Search tools... (ex: pdf, image, qr)"
+    onkeyup="filterTools()"
+    style="width:100%; padding:14px 45px 14px 16px; border-radius:14px; border:1px solid #ccc; outline:none;">
+
+  <!-- SEARCH ICON -->
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       width="20"
+       height="20"
+       style="position:absolute; right:15px; top:50%; transform:translateY(-50%); pointer-events:none;">
+
+      <circle cx="11" cy="11" r="7" stroke="black" stroke-width="2" fill="none"/>
+      <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="black" stroke-width="2"/>
+  </svg>
+
+</div>
 
                 <h3 id="userNameDisplay " class="muted userline "></h3>
             </div>
