@@ -18,7 +18,7 @@ function toggleDarkMode() {
 })();
 
 
-// ---------- USER NAME ----------
+// -------- USER NAME ----------
 function showUserName() {
     const user = localStorage.getItem("toolyUser") || "";
     const el = document.getElementById("userNameDisplay");
