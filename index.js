@@ -10,12 +10,12 @@ function toggleDarkMode() {
 }
 
 // Load saved theme
-(function loadTheme() {
+function loadTheme() {
     const saved = localStorage.getItem("toolyTheme");
     if (saved === "dark") {
         document.body.classList.add("dark");
     }
-})();
+}
 
 
 // -------- USER NAME ----------
