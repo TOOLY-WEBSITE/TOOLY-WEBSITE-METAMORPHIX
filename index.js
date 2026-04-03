@@ -87,3 +87,47 @@ document.addEventListener("DOMContentLoaded", () => {
         input.addEventListener("input", filterTools);
     }
 });
+
+
+
+
+//--------pdf compress ------
+
+
+async function compressPDF() {
+    const fileInput = document.getElementById("fileInput");
+
+    if (!fileInput.files.length) {
+        alert("Please select a PDF file");
+        return;
+    }
+
+    const file = fileInput.files[0];
+    const arrayBuffer = await file.arrayBuffer();
+
+    // Load existing PDF
+    const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+
+    // Create new PDF (optimized)
+    const newPdf = await PDFLib.PDFDocument.create();
+
+    // Copy pages
+    const pages = await newPdf.copyPages(pdfDoc, pdfDoc.getPageIndices());
+
+    pages.forEach((page) => {
+        newPdf.addPage(page);
+    });
+
+    // Save with compression options
+    const pdfBytes = await newPdf.save({
+        useObjectStreams: true   // helps reduce size
+    });
+
+    // Download compressed file
+    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "compressed.pdf";
+    link.click();
+}
